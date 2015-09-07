@@ -37,13 +37,13 @@ Input Options
 =============
 ``start_date`` and ``end_date`` should be specified in yyyy-mm-dd format
 
-``order`` ['asc','dsc']
+``order`` ['asc', 'dsc']
 
 ``rows`` an integer representing the numbers of rows to return
 
-``collapse`` ['daily','weekly','monthly','quarterly','annual']
+``collapse`` ['daily', 'weekly', 'monthly', 'quarterly', 'annual']
 
-``transform`` ['diff','rdiff','cumul']
+``transform`` ['diff', 'rdiff', 'cumul']
 
 ``column_index`` an integer representing the column to return
 
