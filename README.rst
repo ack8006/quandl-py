@@ -7,11 +7,13 @@ Simple Example
 This example shows all of the potential options for this wrapper
 
 ```python
+
 import quandl-py as qp
 qp.API_KEY = 'xxxxxxxxxxx'
 qp.get('YAHOO', 'AAPL', start_date='2010-01-01', end_date='2015-09-30',
-        order='dsc', rows=10, collapse='monthly', transform='rdiff',
+        order='dsc', rows=10, collapse='monthly', transform='rdiff', 
         column_index=3)
+
 ```
 
 This will return:
