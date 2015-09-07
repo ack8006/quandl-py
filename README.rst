@@ -9,10 +9,9 @@ This example shows all of the potential options for this wrapper
 ```python
 
 import quandl-py as qp
-qp.API_KEY = 'xxxxxxxxxxx'
-qp.get('YAHOO', 'AAPL', start_date='2010-01-01', end_date='2015-09-30',
-        order='dsc', rows=10, collapse='monthly', transform='rdiff', 
-        column_index=3)
+qp.get('YAHOO', 'AAPL', api_key='xxxxx' start_date='2010-01-01', 
+        end_date='2015-09-30', order='dsc', rows=10, collapse='monthly', 
+        transform='rdiff',  column_index=3)
 
 ```
 
@@ -30,13 +29,16 @@ This will return:
 7          2015-02-28          0.097475
 8          2015-01-31          0.060249
 9          2014-12-31         -0.066413
+
 ```           
 
-In the above example, setting the API_KEY, dataset ('YAHOO'), and
+In the above example, setting the dataset ('YAHOO'), and
 ticker('AAPL') are required.  All other parameters are optional.  
 
 Input Options
 =============
+``api_key`` API key obtained from quandl
+
 ``start_date`` and ``end_date`` should be specified in yyyy-mm-dd format
 
 ``order`` ['asc', 'dsc']
@@ -51,5 +53,5 @@ Input Options
 
 Installation
 ============
-    pip install quandl-py
+    pip install quandlpy
 

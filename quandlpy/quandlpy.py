@@ -8,8 +8,8 @@ from dateutil.parser import parse
 #&column_index=4&collapse=quarterly&transform=rdiff
 
 QUANDL_URL_BASE = 'https://www.quandl.com/api/v3/datasets/'
-API_KEY = None
-INPUT_DICT = {'start_date': None,
+INPUT_DICT = {'api_key': None,
+              'start_date': None,
               'end_date': None,
               'order': ['asc', 'dsc'],
               'rows': int,
@@ -18,16 +18,13 @@ INPUT_DICT = {'start_date': None,
               'transform': ['diff','rdiff','cumul']
               }
 
-
 def get(dataset, ticker, **kwargs):
-
-    if not API_KEY:
-        error = "Please Set API Key using quandlWrap.API_KEY=xxx"
-        raise MissingAPIKey(error)
-
     url = QUANDL_URL_BASE +dataset
     url += '/' + ticker
     url += '.json?'
+
+    if 'api_key' in kwargs:
+        url += 'auth_token='+ kwargs.pop('api_key') + '&'
 
     kwargs = checkKwargs(**kwargs)
     url = addKwargsToUrl(url, **kwargs)
@@ -78,10 +75,6 @@ def makeDataFrame(pageJson):
 
 
 
-
-class MissingAPIKey(Exception):
-    "Exception for missing API Key"
-    pass
 
 class InvalidKeyword(Exception):
     "Exception for Invalid Keyword"
