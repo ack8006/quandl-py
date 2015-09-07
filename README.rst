@@ -1,15 +1,13 @@
 quandlpy: Simple Quandl Python Wrapper
-=======================================
+======================================
 Simple Python wrapper to return Quandl Api information as Pandas DataFrames 
 
 Simple Example
 ==============
-This example shows all of the potential options for this wrapper
+This example shows all of the potential options for this wrapper:
 
 
-
-```
-
+```python
 import quandlpy as qp
 qp.get('YAHOO', 'AAPL', api_key='xxxxx', start_date='2010-01-01', 
         end_date='2015-09-30', order='dsc', rows=10, collapse='monthly', 
