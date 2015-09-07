@@ -31,10 +31,8 @@ def get(dataset, ticker, **kwargs):
 
     kwargs = checkKwargs(**kwargs)
     url = addKwargsToUrl(url, **kwargs)
-    print url
     pageJson = getPageJson(url)
     dFrame = makeDataFrame(pageJson)
-    print dFrame
     return dFrame
 
 
