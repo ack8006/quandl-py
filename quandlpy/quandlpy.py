@@ -32,7 +32,6 @@ def get(dataset, ticker, **kwargs):
     dFrame = makeDataFrame(pageJson)
     return dFrame
 
-
 def checkKwargs(**kwargs):
     def checkDate(date):
         try:
@@ -40,6 +39,9 @@ def checkKwargs(**kwargs):
         except ValueError as e:
             error = str(date) + " is not a valid parameter"
             raise InvalidParameter(error)
+
+    #handles Nones passed in
+    kwargs = {k:v for k, v in kwargs.iteritems() if v}
 
     for key, val in kwargs.iteritems():
         if key not in INPUT_DICT:
