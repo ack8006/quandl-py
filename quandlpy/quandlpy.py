@@ -70,13 +70,18 @@ def addKwargsToUrl(url, **kwargs):
 
 def getPageJson(url):
     page = requests.get(url)
-    return page.json()['dataset']
+    if page.status_code == 200:
+        return page.json()['dataset']
+    elif page.status_code== 404:
+        raise TickerDatasetDoesNotExist()
+        return pd.DataFrame()
 
 def makeDataFrame(pageJson):
     return pd.DataFrame(pageJson['data'], columns=pageJson['column_names'])
 
-
-
+class TickerDatasetDoesNotExist(Exception):
+    "Exception for Nonexistent Dataset or Ticker"
+    pass
 
 class InvalidKeyword(Exception):
     "Exception for Invalid Keyword"
