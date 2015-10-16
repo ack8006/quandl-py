@@ -5,7 +5,7 @@ setup(
     name='quandlpy',
     packages = ['quandlpy'],
     description='simple Quandl python wrapper',
-    version = '0.1.2',
+    version = '0.1.4',
     author = 'Alex Takata',
     author_email = 'takata.alex@gmail.com',
     url = 'https://github.com/ack8006/quandl-py',
